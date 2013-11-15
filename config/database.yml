@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  port: 5432
+  username: world_class
+  password:
+  database: world_class_dev
+  encoding: unicode
+  host: localhost

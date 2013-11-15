@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2510829108">
+    <data-source source="LOCAL" name="Rails WorldClass: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="3c456d4b-4398-414d-8c01-f08560b2bfd4">
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/veedme_dev</jdbc-url>
+      <user-name>worldClass</user-name>
+      <user-password>dfdddfc5dfd8dfc6dfcedfe9dfc6dfcbdfd9dfd9df9bdf98df99</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.2-1002.jdbc4.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+
