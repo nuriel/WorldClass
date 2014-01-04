@@ -21,6 +21,8 @@
 #  status                 :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  lat                    :string(255)
+#  lng                    :string(255)
 #
 
 class User < ActiveRecord::Base
