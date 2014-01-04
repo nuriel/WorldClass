@@ -1,5 +1,8 @@
 WorldClass::Application.routes.draw do
 
+  resources :classrooms
+
+
   resources :answers
 
 

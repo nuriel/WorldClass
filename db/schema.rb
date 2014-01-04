@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104200424) do
+ActiveRecord::Schema.define(:version => 20140104201233) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20140104200424) do
     t.boolean  "approved_by_teacher"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+  end
+
+  create_table "classrooms", :force => true do |t|
+    t.integer  "teacher_id"
+    t.string   "video_url"
+    t.string   "video_provider"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "questions", :force => true do |t|

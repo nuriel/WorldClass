@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Teacher:</b>
+  <%= @classroom.teacher_id %>
+</p>
+
+<p>
+  <b>Video url:</b>
+  <%= @classroom.video_url %>
+</p>
+
+<p>
+  <b>Video provider:</b>
+  <%= @classroom.video_provider %>
+</p>
+
+
+<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<%= link_to 'Back', classrooms_path %>
