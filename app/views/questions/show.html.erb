@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @question.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @question.content %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @question.rating %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @question.time %>
+</p>
+
+<p>
+  <b>Class:</b>
+  <%= @question.class_id %>
+</p>
+
+<p>
+  <b>Video in class:</b>
+  <%= @question.video_in_class %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
