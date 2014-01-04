@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -9,6 +10,10 @@ gem 'pg'  #postgresSQL
 gem 'annotate'
 gem 'puma'
 gem 'devise'
+
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
