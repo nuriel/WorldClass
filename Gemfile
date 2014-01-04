@@ -8,7 +8,7 @@ gem 'rails', '3.2.11'
 
 gem 'pg'  #postgresSQL
 gem 'annotate'
-gem 'puma'
+gem 'thin'
 gem 'devise'
 
 gem "therubyracer"
