@@ -23,6 +23,7 @@
 #  updated_at             :datetime         not null
 #  lat                    :string(255)
 #  lng                    :string(255)
+#  image                  :string(255)
 #
 
 require 'test_helper'

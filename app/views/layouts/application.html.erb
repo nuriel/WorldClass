@@ -49,9 +49,8 @@
           <a class="brand" href="#">WorldClass</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Home", root_path  %></li>
+              <li><%= link_to "Manage Classes", classrooms_path if current_user && current_user.is_teacher  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -63,10 +62,12 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="nav-header">Available classes </li>
+              <%= Class.scoped.each do |c| %>
+                <%= link_to classroom_path(c) do %>
+                  <%= "#{c.name}" %>
+                <% end %>
+              <% end %>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -77,7 +78,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; World Claas - a project for the OpenU by nuriel zuaretz 2014</p>
       </footer>
 
     </div> <!-- /container -->

@@ -14,8 +14,16 @@
     <file path="/20140104195940_create_questions.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388866090943" ignored="false" />
     <file path="/20140104200424_create_answers.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388866051075" ignored="false" />
     <file path="/home_controller.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388868662399" ignored="false" />
-    <file path="/index.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388868616511" ignored="false" />
+    <file path="/index.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388874225698" ignored="false" />
     <file path="/routes.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388868651069" ignored="false" />
+    <file path="/seeds.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388943425462" ignored="false" />
+    <file path="/application.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388967945870" ignored="false" />
+    <file path="/20131115032404_devise_create_users.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388875224352" ignored="false" />
+    <file path="/classroom.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388942766433" ignored="false" />
+    <file path="/user.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388942809694" ignored="false" />
+    <file path="/application_controller.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388934681399" ignored="false" />
+    <file path="/20140105172500_add_name_to_classroom.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388942734081" ignored="false" />
+    <file path="/20140106004106_create_classroom_user_tables.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388968996470" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +48,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="9" selection-start="202" selection-end="202" vertical-scroll-proportion="0.24311183">
+            <state line="14" column="28" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -52,16 +60,25 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="41" selection-start="759" selection-end="759" vertical-scroll-proportion="-11.25">
+            <state line="67" column="36" selection-start="2951" selection-end="2951" vertical-scroll-proportion="-13.666667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="static_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/static_controller.rb">
+      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="35" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0">
+            <state line="41" column="5" selection-start="1554" selection-end="1554" vertical-scroll-proportion="0.89563864">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="39" selection-start="151" selection-end="173" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -70,43 +87,34 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/static/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="-0.0">
+            <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="8" selection-start="0" selection-end="1353" vertical-scroll-proportion="0.0">
+            <state line="10" column="64" selection-start="558" selection-end="558" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20140104194437_add_fields_to_users.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20140104194437_add_fields_to_users.rb">
+      <file leaf-file-name="classroom.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/classroom.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="12" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+            <state line="17" column="2" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questions_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/questions_controller.rb">
+      <file leaf-file-name="20140106004106_create_classroom_user_tables.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140106004106_create_classroom_user_tables.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="21" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0">
+            <state line="11" column="25" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -122,20 +130,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/database.yml" />
-        <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20140104194437_add_fields_to_users.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20140104195940_create_questions.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20140104200424_create_answers.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
+        <option value="$PROJECT_DIR$/app/views/static/index.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20131115032404_devise_create_users.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140104222915_add_name_and_image_to_user.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140105172500_add_name_to_classroom.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/classroom.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140106004106_create_classroom_user_tables.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
       </list>
     </option>
   </component>
@@ -688,100 +698,86 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/static/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="27" selection-start="753" selection-end="753" vertical-scroll-proportion="0.3470437" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="6" selection-start="2776" selection-end="2776" vertical-scroll-proportion="0.88431877">
+        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140104222915_add_name_and_image_to_user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="8" selection-start="0" selection-end="1353" vertical-scroll-proportion="0.0">
+        <state line="2" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.046728972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20131115032404_devise_create_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="53" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.43925235">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140104194437_add_fields_to_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="12" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+        <state line="1" column="12" selection-start="61" selection-end="61" vertical-scroll-proportion="0.023364486">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140104195940_create_questions.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140105172500_add_name_to_classroom.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="32" selection-start="288" selection-end="288" vertical-scroll-proportion="0.21028037">
+        <state line="5" column="77" selection-start="133" selection-end="133" vertical-scroll-proportion="0.11682243">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140104200424_create_answers.rb">
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="39" selection-start="218" selection-end="218" vertical-scroll-proportion="0.14018692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/questions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="10" column="64" selection-start="558" selection-end="558" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/classrooms_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="2079" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/static/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0">
+        <state line="5" column="39" selection-start="151" selection-end="173" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="41" selection-start="759" selection-end="759" vertical-scroll-proportion="-11.25">
+        <state line="67" column="36" selection-start="2951" selection-end="2951" vertical-scroll-proportion="-13.666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+    <entry file="file://$PROJECT_DIR$/app/models/classroom.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="671" selection-end="671" vertical-scroll-proportion="0.37383178">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="17" column="2" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140106004106_create_classroom_user_tables.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="542" selection-end="542" vertical-scroll-proportion="0.25700936">
+        <state line="11" column="25" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="28" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="4" selection-start="3036" selection-end="3036" vertical-scroll-proportion="0.6899841">
           <folding />
         </state>
       </provider>
@@ -793,9 +789,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="9" selection-start="202" selection-end="202" vertical-scroll-proportion="0.24311183">
+        <state line="12" column="1" selection-start="560" selection-end="560" vertical-scroll-proportion="0.28037384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="17" selection-start="669" selection-end="669" vertical-scroll-proportion="0.3504673">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="5" selection-start="1554" selection-end="1554" vertical-scroll-proportion="0.89563864">
           <folding />
         </state>
       </provider>

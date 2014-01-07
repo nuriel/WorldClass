@@ -23,6 +23,7 @@
 #  updated_at             :datetime         not null
 #  lat                    :string(255)
 #  lng                    :string(255)
+#  image                  :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -32,6 +33,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :name, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :name, :remember_me, :lat, :lng, :image
   # attr_accessible :title, :body
+
+  has_many :classrooms, foreign_key: "teacher_id"
+
+  def to_s
+    name
+  end
 end

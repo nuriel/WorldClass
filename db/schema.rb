@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104201233) do
+ActiveRecord::Schema.define(:version => 20140106004106) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -29,7 +29,16 @@ ActiveRecord::Schema.define(:version => 20140104201233) do
     t.string   "video_provider"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "name"
   end
+
+  create_table "classrooms_users", :id => false, :force => true do |t|
+    t.integer "classroom_id"
+    t.integer "user_id"
+  end
+
+  add_index "classrooms_users", ["classroom_id", "user_id"], :name => "index_classrooms_users_on_classroom_id_and_user_id"
+  add_index "classrooms_users", ["user_id"], :name => "index_classrooms_users_on_user_id"
 
   create_table "questions", :force => true do |t|
     t.string   "title"
@@ -64,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20140104201233) do
     t.datetime "updated_at",                             :null => false
     t.string   "lat"
     t.string   "lng"
+    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

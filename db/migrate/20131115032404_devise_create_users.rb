@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :name
       t.integer :ouid
-      t.boolean :is_teacher
+      t.boolean :is_teacher, default: false
       t.string :ip
       t.string :os
       t.string :status
