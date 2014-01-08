@@ -1,4 +1,6 @@
 class ClassroomsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /classrooms
   # GET /classrooms.json
   def index

@@ -51,6 +51,11 @@
             <ul class="nav">
               <li><%= link_to "Home", root_path  %></li>
               <li><%= link_to "Manage Classes", classrooms_path if current_user && current_user.is_teacher  %></li>
+              <% if current_user.present? %>
+                <li><%= "Logged in as #{current_user.name}," %><%= link_to 'Sign out', destroy_user_session_path, method: "delete" if current_user && current_user.is_teacher %></li>
+              <% else %>
+                <li><%= link_to 'Sign in', new_user_session_path %></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -63,7 +68,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Available classes </li>
-              <%= Class.scoped.each do |c| %>
+              <% Classroom.scoped.each do |c| %>
                 <%= link_to classroom_path(c) do %>
                   <%= "#{c.name}" %>
                 <% end %>

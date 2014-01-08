@@ -80,6 +80,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.15.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     less (2.4.0)
       commonjs (~> 0.2.7)
     less-rails (2.4.2)
@@ -167,7 +170,6 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    will_paginate (3.0.5)
     workflow (0.8.0)
 
 PLATFORMS
@@ -179,6 +181,7 @@ DEPENDENCIES
   devise
   forem!
   jquery-rails
+  kaminari
   less-rails
   pg
   rails (= 3.2.11)
@@ -187,4 +190,3 @@ DEPENDENCIES
   thin
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-  will_paginate (= 3.0.5)

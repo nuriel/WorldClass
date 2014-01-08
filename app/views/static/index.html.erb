@@ -1,1 +1,16 @@
-<%= @classes.all %>
+<strong>Welcome to World class!</strong>
+<br>
+<% if current_user.present? %>
+  Hello <%= current_user.name %>,
+  <br>
+  Please choose one of the classes on the left and start learning!
+<% else %>
+  <br>
+  You have to be logged in to use this system.
+  <br>
+  <strong>
+    <%= link_to 'have and account? sign in', new_user_session_path %>
+    <br>
+    <%= link_to 'no account? sign up', new_user_registration_path %>
+  </strong>
+<% end %>

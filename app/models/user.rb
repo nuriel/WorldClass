@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :name, :remember_me, :lat, :lng, :image
   # attr_accessible :title, :body
 
-  has_many :classrooms, foreign_key: "teacher_id"
+  has_many :teaching_classrooms, class_name: "Classroom", foreign_key: "teacher_id"
+  has_and_belongs_to_many :classrooms
 
   def to_s
     name

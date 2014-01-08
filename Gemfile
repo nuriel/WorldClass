@@ -12,7 +12,7 @@ gem 'thin'
 gem 'devise'
 
 gem 'forem', :github => "radar/forem"
-gem 'will_paginate', '3.0.5'
+gem 'kaminari'
 
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS

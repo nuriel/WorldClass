@@ -12,8 +12,8 @@
 
 <% @classrooms.each do |classroom| %>
   <tr>
-    <td><%= classroom.teacher_id %></td>
-    <td><%= classroom.video_url %></td>
+    <td><%= classroom.teacher.name %></td>
+    <td><%= link_to classroom.video_url, classroom.video_url, target: "_blank" %></td>
     <td><%= classroom.video_provider %></td>
     <td><%= link_to 'Show', classroom %></td>
     <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
