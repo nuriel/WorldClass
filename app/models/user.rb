@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
   has_many :teaching_classrooms, class_name: "Classroom", foreign_key: "teacher_id"
   has_and_belongs_to_many :classrooms
 
+  scope :teachers, -> { where is_teacher: true}
+
   def to_s
     name
   end

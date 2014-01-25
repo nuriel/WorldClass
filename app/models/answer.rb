@@ -10,8 +10,15 @@
 #  approved_by_teacher :boolean
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  user_id             :integer
 #
 
 class Answer < ActiveRecord::Base
-  attr_accessible :approved_by_teacher, :content, :question_id, :rating, :solved
+  attr_accessible :approved_by_teacher, :content, :question_id, :rating, :solved, :user_id
+
+  belongs_to :question
+  validates :question, presence: true
+  belongs_to :user
+  validates :user, presence: true
+
 end

@@ -1,8 +1,9 @@
 class QuestionsController < ApplicationController
-  # GET /questions
-  # GET /questions.json
+  respond_to :js, :json
+
   def index
-    @questions = Question.all
+    @classroom = Classroom.find(params[:classroom_id])
+    @questions = @classroom.questions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,13 +42,15 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(params[:question])
+    @classroom = Classroom.find(@question.classroom_id)
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to @classroom, notice: 'Question was successfully created.' }
+        format.js { render 'create'}
         format.json { render json: @question, status: :created, location: @question }
       else
-        format.html { render action: "new" }
+        format.js { redirect_to @classroom, notice: "#{@question.errors}" }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end

@@ -10,6 +10,7 @@ gem 'pg'  #postgresSQL
 gem 'annotate'
 gem 'thin'
 gem 'devise'
+gem 'faye'
 
 gem 'forem', :github => "radar/forem"
 gem 'kaminari'
@@ -17,6 +18,10 @@ gem 'kaminari'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+gem 'gmaps4rails'
+gem 'gon'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +34,11 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+group :development do
+  gem "better_errors"
+end
+gem "binding_of_caller"
 
 gem 'jquery-rails'
 

@@ -34,7 +34,11 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
+    <%= include_gon %>
+
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "http://localhost:9292/faye.js" %>
+
   </head>
   <body>
 
@@ -46,7 +50,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">WorldClass</a>
+          <%= link_to "World Class", root_path, class: 'brand' %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Home", root_path  %></li>
@@ -68,11 +72,13 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Available classes </li>
-              <% Classroom.scoped.each do |c| %>
-                <%= link_to classroom_path(c) do %>
-                  <%= "#{c.name}" %>
+              <li>
+                <% Classroom.scoped.each do |c| %>
+                  <%= link_to classroom_path(c) do %>
+                    <%= "#{c.name}" %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

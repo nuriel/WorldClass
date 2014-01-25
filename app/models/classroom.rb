@@ -15,6 +15,12 @@ class Classroom < ActiveRecord::Base
   attr_accessible :teacher_id, :video_provider, :video_url, :name
 
   belongs_to :teacher, class_name: "User"
+  validates :teacher, presence: true
   has_and_belongs_to_many :students, class_name: "User"
+
+  has_many :questions
+  has_many :answers, through: :questions
+
+  validates :video_url, presence: true
 
 end

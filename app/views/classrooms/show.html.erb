@@ -1,19 +1,40 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <h4><%= "Welcome to #{@classroom.name}" %></h4>
+  <h5><%= "Teacher: #{@classroom.teacher.name}" %></h5>
+  <%= form_for [@classroom, Question.new], :html => { :id => 'new_question_form', :class => 'form-horizontal' }, :remote => true do |f| %>
+    <%= f.hidden_field :classroom_id, value: @classroom.id %>
+    <div class="control-group">
+      <%= f.label :title, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'text_field new_question_field' %>
+        <div>ask at time:</div><%= f.text_field :time, value: 0, id: 'time_counter' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :content, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :content, rows: 2, :class => 'text_area new_question_field' %>
+      </div>
+    </div>
+    <%= f.submit "Send" %>
+  <% end %>
+</div>
 <p>
-  <b>Teacher:</b>
-  <%= @classroom.teacher_id %>
+  <%= raw(youtube_embed(@classroom.video_url)) %>
 </p>
 
-<p>
-  <b>Video url:</b>
-  <%= @classroom.video_url %>
-</p>
+<h3>Current Questions and answers</h3>
 
-<p>
-  <b>Video provider:</b>
-  <%= @classroom.video_provider %>
-</p>
+<ul id="questions">
+  <%= render @classroom.questions %>
+</ul>
+
+
+
+
+
 
 
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |

@@ -12,8 +12,13 @@
 #  right_answer_id :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  classroom_id    :integer
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :class_id, :content, :rating, :time, :title, :video_in_class
+  attr_accessible :classroom_id, :content, :rating, :time, :title, :video_in_class
+
+  belongs_to :classroom
+  validates :classroom, presence: true
+  has_many :answers
 end
