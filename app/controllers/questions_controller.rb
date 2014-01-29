@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(params[:question])
+    @question = current_user.questions.create(params[:question])
     @classroom = Classroom.find(@question.classroom_id)
 
     respond_to do |format|
@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
         format.js { render 'create'}
         format.json { render json: @question, status: :created, location: @question }
       else
-        format.js { redirect_to @classroom, notice: "#{@question.errors}" }
+        format.html { redirect_to @classroom, notice: "#{@question.errors}" }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
@@ -76,11 +76,19 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1.json
   def destroy
     @question = Question.find(params[:id])
+    classroom = @question.classroom
     @question.destroy
 
     respond_to do |format|
-      format.html { redirect_to questions_url }
+      format.html { redirect_to classroom_url(classroom) }
       format.json { head :no_content }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @question = Question.find(params[:id])
+    @question.add_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting!"
   end
 end

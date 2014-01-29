@@ -1,0 +1,4 @@
+<% if resource.is_a? User %>
+  <%= f.hidden_field :lat, id: 'hidden_lat' %>
+  <%= f.hidden_field :lng, id: 'hidden_lng' %>
+<% end %>

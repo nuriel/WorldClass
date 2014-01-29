@@ -16,26 +16,70 @@
 //= require forem
 //= require underscore
 //= require gmaps/google
+//= require geoPosition.js
 //= require_tree .
 
-
+// main function to initiate all
 $(function() {
-    // Faye channels configuration
-    var faye = new Faye.Client('http://localhost:9292/faye');
-    faye.subscribe('/users/update', function (data) {
-        alert("q: " + data);
-    });
-    faye.subscribe('/questions/new', function (data) {
-        eval(data);
-    });
-    faye.subscribe('/answers/new', function (data) {
-        alert("a: " + data);
-    });
+  // Faye channels configuration
+  var faye = new Faye.Client('http://localhost:9292/faye');
+  faye.subscribe('/users/update', function (data) {
+    eval(data);
+  });
+  faye.subscribe('/questions/new', function (data) {
+    eval(data);
+  });
+  faye.subscribe('/question/answer', function (data) {
+    eval(data);
+  });
 
-    if ($('#map').length > 0) {
-        initiateGmaps()
-    }
 
+  google.maps.event.addDomListener(window, "load", initialize);
+
+});
+
+function initialize()
+{
+  if(geoPosition.init())
+  {
+    document.getElementById('current').innerHTML="Receiving...";
+    geoPosition.getCurrentPosition(showPosition,function(){document.getElementById('current').innerHTML="Couldn't get location"},{enableHighAccuracy:true});
+    initiateGmaps()
+  }
+  else
+  {
+    document.getElementById('current').innerHTML="Functionality not available";
+  }
+}
+
+function showPosition(p)
+{
+  var lat = parseFloat( p.coords.latitude );
+  var lng = parseFloat( p.coords.longitude );
+  document.getElementById('current').innerHTML="latitude=" + lat + " longitude=" + lng;
+  $('#hidden_lat').val(lat);
+  $('#hidden_lng').val(lng);
+
+//  console.log(gon.map_json)
+}
+
+function updateBeacon() {
+
+}
+
+var visitorPosition = null;
+function positionSuccess(position) {
+  visitorPosition = position; // store for future reference
+  var lat = visitorPosition.coordinates.latitude;
+  var lng = visitorPosition.coordinates.longitude;
+  // we'll use these variables later
+}
+
+function positionError(error) {
+  alert('position error');
+}
+
+function onYouTubePlayerAPIReady() {
     var ytplayer = document.getElementById("ytPlayer");
     // This causes the updatePlayerInfo function to be called every 250ms to
     // get fresh data from the player
@@ -63,23 +107,13 @@ $(function() {
     function abortTimer() { // to be called when you want to stop the timer
         clearInterval(tid);
     }
-});
+
+}
 
 var initiateGmaps = function() {
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers([
-            {
-                "lat": 0,
-                "lng": 0,
-                "picture": {
-                    "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-                    "width":  36,
-                    "height": 36
-                },
-                "infowindow": "hello!"
-            }
-        ]);
+        markers = handler.addMarkers(gon.map_json);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
     });

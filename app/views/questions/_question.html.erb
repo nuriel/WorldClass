@@ -1,3 +1,20 @@
-<li>
-  <h3><%= question.content %></h3>
-</li>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4><%= "(#{question.time}) #{question.title}" %></h4></div>
+  <div class="panel-body">
+    <p><%= simple_format question.content %></p>
+  </div>
+  <em>
+    -- <%= question.user.name %>
+    | <%= link_to "up", vote_classroom_question_path(question, type: "up"), method: "post" %>
+    | <%= link_to "down", vote_classroom_question_path([question], type: "down"), method: "post" %>
+  </em>
+  <%= button_to "delete", [question.classroom,question], :method=>:delete, :class=>:destroy, :confirm => 'are you sure?' if current_user.is_teacher %>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <% question.answers.each do |answer| %>
+      <li class="list-group-item"><%= answer.content %></li>
+    <% end %>
+  </ul>
+</div>

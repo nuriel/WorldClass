@@ -21,7 +21,9 @@ gem "twitter-bootstrap-rails"
 
 gem 'gmaps4rails'
 gem 'gon'
+gem 'geocoder'
 
+gem 'activerecord-reputation-system', require: 'reputation_system'
 
 # Gems used only for assets and not required
 # in production environments by default.

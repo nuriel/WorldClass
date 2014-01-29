@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def current_user_is_teacher
+    current_user && current_user.is_teacher
+  end
+
   # broadcast a message
   def broadcast(channel, &block)
     message = {:channel => channel, :data => capture(&block)}

@@ -1,41 +1,35 @@
 <p id="notice"><%= notice %></p>
-
 <div>
   <h4><%= "Welcome to #{@classroom.name}" %></h4>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default" onclick="$('#new_question_form').slideToggle()" >question (<span data-update="classroom_question_time">0:00</span>)</button>
+    <button type="button" class="btn btn-default" onclick="$('#player_wrapper').slideToggle()" >video <span data-update="classroom_video_time">0:00</span></button>
+    <button type="button" class="btn btn-default" onclick="$('#questions').slideToggle()" >discussion (<span data-update="classroom_question_count"><%= @classroom.questions.count %></span>)</button>
+  </div>
   <h5><%= "Teacher: #{@classroom.teacher.name}" %></h5>
-  <%= form_for [@classroom, Question.new], :html => { :id => 'new_question_form', :class => 'form-horizontal' }, :remote => true do |f| %>
-    <%= f.hidden_field :classroom_id, value: @classroom.id %>
-    <div class="control-group">
-      <%= f.label :title, class: 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :title, :class => 'text_field new_question_field' %>
-        <div>ask at time:</div><%= f.text_field :time, value: 0, id: 'time_counter' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :content, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_area :content, rows: 2, :class => 'text_area new_question_field' %>
-      </div>
-    </div>
-    <%= f.submit "Send" %>
-  <% end %>
 </div>
-<p>
+<%= form_for [@classroom, Question.new], :html => { :id => 'new_question_form', :class => 'form-horizontal' }, :remote => true do |f| %>
+  <%= f.hidden_field :classroom_id, value: @classroom.id %>
+  <div class="control-group">
+    <%= f.label :title, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field new_question_field' %>
+      <div>ask at time:</div><%= f.text_field :time, value: 0, id: 'time_counter' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, rows: 2, :class => 'text_area new_question_field' %>
+    </div>
+  </div>
+  <%= f.submit "Send" %>
+<% end %>
+<div id="player_wrapper">
   <%= raw(youtube_embed(@classroom.video_url)) %>
-</p>
+</div>
 
-<h3>Current Questions and answers</h3>
+<%= render :partial => 'questions', :locals => {:classroom => @classroom} %>
 
-<ul id="questions">
-  <%= render @classroom.questions %>
-</ul>
-
-
-
-
-
-
-
-<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<%= link_to 'Edit |', edit_classroom_path(@classroom) if current_user_is_teacher%>
 <%= link_to 'Back', classrooms_path %>

@@ -21,4 +21,6 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   validates :user, presence: true
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
+
 end

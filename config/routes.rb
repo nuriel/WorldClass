@@ -2,7 +2,10 @@ WorldClass::Application.routes.draw do
 
   resources :classrooms do
     resources :questions do
-      resources :answers
+      member { post :vote }
+      resources :answers do
+        member { post :vote }
+      end
     end
   end
 

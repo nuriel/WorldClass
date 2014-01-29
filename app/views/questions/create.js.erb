@@ -1,0 +1,5 @@
+<% broadcast "/questions/new" do %>
+  $("#questions").append("<%= escape_javascript render(@question) %>");
+<% end %>
+$(".new_question_field")[0].reset();
+$(".new_question_field")[1].reset();

@@ -17,6 +17,8 @@ class ClassroomsController < ApplicationController
   def show
     @classroom = Classroom.find(params[:id])
 
+    @questions = @classroom.questions.order('updated_at DESC').all
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @classroom }

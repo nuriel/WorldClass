@@ -1,6 +1,15 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 
+// help gmaps4rails with bootstrap
+#map img {
+  max-width: none;
+}
+#map label {
+  width: auto; display:inline;
+}
+
+
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
 @iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");

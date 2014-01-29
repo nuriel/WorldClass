@@ -1,5 +1,14 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+
+Warden::Manager.after_authentication do |user,auth,opts|
+  user.update_attribute(:status, "LOGGED IN")
+end
+
+Warden::Manager.before_logout do |user,auth,opts|
+  user.update_attribute(:status, "OFFLINE")
+end
+
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
