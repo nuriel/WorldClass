@@ -18,10 +18,12 @@
 class Question < ActiveRecord::Base
   attr_accessible :classroom_id, :content, :rating, :time, :title, :video_in_class
 
-  has_reputation :votes, source: :user, aggregated_by: :sum
+  has_reputation :votes, source: :user
 
   belongs_to :user
   belongs_to :classroom
   validates :classroom, presence: true
+  validates :title, presence: true
+  validates :content, presence: true
   has_many :answers
 end

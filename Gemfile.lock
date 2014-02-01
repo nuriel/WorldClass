@@ -107,6 +107,7 @@ GEM
     gon (5.0.1)
       actionpack (>= 2.3.0)
       json
+    gravatar_image_tag (1.2.0)
     hike (1.2.3)
     http_parser.rb (0.6.0)
     i18n (0.6.5)
@@ -223,6 +224,7 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   gon
+  gravatar_image_tag
   jquery-rails
   kaminari
   less-rails

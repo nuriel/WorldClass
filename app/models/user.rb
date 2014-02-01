@@ -38,11 +38,30 @@ class User < ActiveRecord::Base
 
   has_many :teaching_classrooms, class_name: "Classroom", foreign_key: "teacher_id"
   has_many :questions
+  has_many :answers
+
   has_and_belongs_to_many :classrooms
+
+  has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
 
   scope :teachers, -> { where is_teacher: true}
 
+  has_reputation :karma,
+                 :source => [
+                     { :reputation => :questioning_skill, :weight => 0.8 },
+                     { :reputation => :answering_skill }]
+
+  has_reputation :questioning_skill,
+                 :source => { :reputation => :votes, :of => :questions }
+
+  has_reputation :answering_skill,
+                 :source => { :reputation => :avg_rating, :of => :answers }
+
   validate :name, presence: true
+
+  def voted_for?(object)
+    evaluations.where(target_type: object.class, target_id: object.id).present?
+  end
 
   def name
     super || "firstly"

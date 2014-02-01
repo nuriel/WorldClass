@@ -16,8 +16,21 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1.json
   def show
     @classroom = Classroom.find(params[:id])
+    gon.questions = @classroom.questions.order(:time).map { |q| [q.time, 1 + q.reputation_for(:votes).to_i + q.answers.count*0.5] }
+    totalArr = Array.new
+    gon.questions.each do |q|
+      index = q[0].to_i / 10
+      totalArr[index] = totalArr[index].blank? ? 1 : totalArr[index] + 1;
+    end
 
-    @questions = @classroom.questions.order('updated_at DESC').all
+    gon.qpm = totalArr.each_with_index.map { |total,i| [i*10, total.to_i] }
+
+    # get the 'hottest questions'
+    if current_user_is_teacher
+      @questions = @classroom.questions.find_with_reputation(:votes, :all, order: 'votes desc')
+    else
+      @questions = @classroom.questions.order('updated_at DESC').all
+    end
 
     respond_to do |format|
       format.html # show.html.erb

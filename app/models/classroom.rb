@@ -23,4 +23,15 @@ class Classroom < ActiveRecord::Base
 
   validates :video_url, presence: true
 
+  def video_id
+    if self.video_url[/youtu\.be\/([^\?]*)/]
+      youtube_id = $1
+    else
+      # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+      self.video_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+      youtube_id = $5
+    end
+    youtube_id
+  end
+
 end

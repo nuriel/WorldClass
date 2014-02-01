@@ -1,4 +1,4 @@
-<div id="questions">
-  <h3>Current Questions (<span data-update="classroom_question_count">@questions.count</span>)</h3>
+<ul id="questions" class="media-list">
+  <h3>Current Questions (<span data-update="classroom_questions_count"><%= @questions.count %></span>)</h3>
   <%= render @questions %>
-</div>
+</ul>

@@ -1,20 +1,43 @@
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><h4><%= "(#{question.time}) #{question.title}" %></h4></div>
-  <div class="panel-body">
-    <p><%= simple_format question.content %></p>
-  </div>
-  <em>
-    -- <%= question.user.name %>
-    | <%= link_to "up", vote_classroom_question_path(question, type: "up"), method: "post" %>
-    | <%= link_to "down", vote_classroom_question_path([question], type: "down"), method: "post" %>
-  </em>
-  <%= button_to "delete", [question.classroom,question], :method=>:delete, :class=>:destroy, :confirm => 'are you sure?' if current_user.is_teacher %>
-
-  <!-- List group -->
-  <ul class="list-group">
-    <% question.answers.each do |answer| %>
-      <li class="list-group-item"><%= answer.content %></li>
-    <% end %>
-  </ul>
-</div>
+  <li id="question_<%= question.id %>">
+      <a class="pull-left" href="#">
+      <%= gravatar_image_tag(question.user.email, :alt => 'question.user.name.humanize', size: "64x64") %>
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= "(#{question.time}) #{question.title}" %></h4>
+      <p><%= simple_format question.content %></p>
+      <!-- Nested media object -->
+      <em>
+        -- <%= question.user.name %>
+        | <%= pluralize question.reputation_for(:votes).to_i, "vote" %>
+        <% if current_user && !current_user.voted_for?(question) %>
+          | <%= link_to "up", vote_classroom_question_path(@classroom, question, type: "up"), method: "post" %>
+          | <%= link_to "down", vote_classroom_question_path(@classroom, question, type: "down"), method: "post" %>
+        <% end %>
+      </em>
+      <%= form_for [question.classroom, question, question.answers.build()], :html => { :id => 'new_question_form', :class => 'form-horizontal' } do |f| %>
+        answer:
+        <div class="control-group">
+          <%= f.hidden_field :question_id, value: question.id  %>
+          <%= f.label :content, 'your answer', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :content, rows: 2, :class => 'text_area new_answer_field' %>
+          </div>
+        </div>
+        <%= f.submit "Send" %>
+      <% end %>
+        <% question.answers.each do |answer| %>
+          <% if answer.persisted? %>
+          <div id="question_<%= question.id %>_answers" class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACsklEQVR4Xu2Y24upYRTGl0PI0JSimHDjMIVETVMzpvzrziLSTIkiLpTcjJLzcfaziuz2Njufsb8La93o+3jX+65nHX55NZ+fnzu6YdOIAFIB0gIyA254BpIMQaGAUEAoIBQQCtywAoJBwaBgUDAoGLxhCMifIcGgYFAwKBgUDAoGb1iBizHYbDap3+/Tbrcjp9NJwWCQNBrNQdJflKF6vU5ms5lisdhv353S/Ro+T+11kQCNRoN6vR7p9Xr2v16vyev1kt/v52eIkkql+L3BYKBEIkFarfbberuGz+82VCzAZrOhdDrNGX17e6PVakXdbpesVis9PDzwnq1Wi9/BTCYTvb6+0mQyoff3d9LpdBSPx2k8HhOCNhqNFIlEKJvNnu3zuOLO7WbFAiyXSz7sdrvloOfzObdAIBDgM8xmM8rlcuTxeGg0GtF0OmWhcNhKpULD4ZBsNhuvw3eoGqxX6vPcwPe/VywAertarbIftADKHIYgQqEQlctlzm4ymaRSqUSLxeIgwLF4WHN/f09PT090ic//LgAynM/nuXRfXl44i8VikXs9HA6zOHd3d+R2u6ndbnOl+Hw+foZ1Oh1+D3t+fuYqutSnEhEUVwAyjhmA3oYA+2cI8Pj4SLVa7Y/zYACiIjAcM5nMoWrsdjtFo9GDDyU+/zVcT4mjWAAEgQpA1lwuF3+irx0OB1cAyhyGg6EdIBAyjeA+Pj5oMBiQxWLhykF1YABirVKfSrKPNYoFwGIMsEKhQCACDO2AXkaQx4bWgACgAAYiBNnTA0KA+5gje5qc61MVChwHiGEHQ0Z/yq7h829nu6gCfipYNf2IAHIjJDdCciMkN0JqTmG19xYKCAWEAkIBoYDak1jN/YUCQgGhgFBAKKDmFFZ7b6GAUEAoIBQQCqg9idXcXyhw6xT4AgyAjZ+ww1kxAAAAAElFTkSuQmCC">
+            </a>
+            <div id="answer_<%= answer.id %>" class="media-body">
+              <h4 class="media-heading"><%= answer.user.name %></h4>
+                <%= simple_format answer.content %>
+              <!-- Nested media object -->
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+    </div>
+  </li>

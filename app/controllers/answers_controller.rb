@@ -40,11 +40,12 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = Answer.new(params[:answer])
+    @answer = current_user.answers.new(params[:answer])
+    @classroom = @answer.question.classroom
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+        format.html { redirect_to @classroom, notice: 'Answer was successfully created.', anchor: "question_#{@answer.question.id}" }
         format.json { render json: @answer, status: :created, location: @answer }
       else
         format.html { render action: "new" }
@@ -85,6 +86,6 @@ class AnswersController < ApplicationController
     value = params[:type] == "up" ? 1 : -1
     @answer = Answer.find(params[:id])
     @answer.add_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting!"
+    redirect_to request.referer + "#question_#{@answer.question.id}", notice: "Thank you for voting!"
   end
 end

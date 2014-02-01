@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_user_is_teacher
+    current_user && current_user.is_teacher
+  end
+
   private
   # https://groups.google.com/forum/#!topic/plataformatec-devise/tOKU_jcWNp0
   def set_last_request_at

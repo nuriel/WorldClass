@@ -51,6 +51,7 @@ class QuestionsController < ApplicationController
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { redirect_to @classroom, notice: "#{@question.errors}" }
+        format.js { render 'create' }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
@@ -88,7 +89,7 @@ class QuestionsController < ApplicationController
   def vote
     value = params[:type] == "up" ? 1 : -1
     @question = Question.find(params[:id])
-    @question.add_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting!"
+    @question.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to request.referer + "#question_#{@question.id}", notice: "Thank you for voting!"
   end
 end

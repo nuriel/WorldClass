@@ -19,6 +19,7 @@ module ApplicationHelper
       youtube_id = $5
     end
 
-    %Q{<iframe title="World Class video player - youtube" id="ytPlayer" class="video_iframe" width="640" height="390" src="http://www.youtube.com/v/#{ youtube_id }?version=3&enablejsapi=1" frameborder="0" allowfullscreen></iframe>}
+    %Q{<iframe title="World Class video player - youtube" id="player" class="video_iframe" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }?enablejsapi=1" frameborder="0" allowfullscreen></iframe>}
+
   end
 end

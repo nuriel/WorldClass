@@ -1,32 +1,45 @@
 <p id="notice"><%= notice %></p>
 <div>
   <h4><%= "Welcome to #{@classroom.name}" %></h4>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default" onclick="$('#new_question_form').slideToggle()" >question (<span data-update="classroom_question_time">0:00</span>)</button>
-    <button type="button" class="btn btn-default" onclick="$('#player_wrapper').slideToggle()" >video <span data-update="classroom_video_time">0:00</span></button>
-    <button type="button" class="btn btn-default" onclick="$('#questions').slideToggle()" >discussion (<span data-update="classroom_question_count"><%= @classroom.questions.count %></span>)</button>
-  </div>
   <h5><%= "Teacher: #{@classroom.teacher.name}" %></h5>
+  <p>control what you see:
+  <div class="btn-group">
+    <button type="button" class="btn btn-default" onclick="$('#ask_a_question').slideToggle()" >ask a question (<span data-update="classroom_question_time">0:00</span>)</button>
+    <button type="button" class="btn btn-default" onclick="$('#external_controllers').slideToggle()" >player controllers</button>
+    <button type="button" class="btn btn-default" onclick="$('#player').slideToggle()" >video <span data-update="classroom_video_time">0:00</span></button>
+    <button type="button" class="btn btn-default" onclick="$('#questions').slideToggle()" >discussion (<span data-update="classroom_questions_count"><%= @classroom.questions.count %></span>)</button>
+  </div>
+  </p>
 </div>
-<%= form_for [@classroom, Question.new], :html => { :id => 'new_question_form', :class => 'form-horizontal' }, :remote => true do |f| %>
-  <%= f.hidden_field :classroom_id, value: @classroom.id %>
-  <div class="control-group">
-    <%= f.label :title, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'text_field new_question_field' %>
-      <div>ask at time:</div><%= f.text_field :time, value: 0, id: 'time_counter' %>
+<div id="ask_a_question" class="row-fluid">
+  <%= form_for [@classroom, Question.new], :html => { :id => 'new_question_form', :class => 'form-horizontal col-xs-7' }, :remote => true do |f| %>
+    <%= f.hidden_field :classroom_id, value: @classroom.id %>
+    <div class="control-group">
+      <%= f.label :title, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'text_field new_question_field' %>
+        <%= f.hidden_field :time, value: 0, id: 'time_counter', class: 'new_question_field' %>
+      </div>
+      <%= f.label :content, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :content, rows: 2, :class => 'text_area new_question_field' %>
+      </div>
+      <%= f.submit "Ask the question", class: 'pull-right' %>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :content, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :content, rows: 2, :class => 'text_area new_question_field' %>
-    </div>
-  </div>
-  <%= f.submit "Send" %>
+  <% end %>
+</div>
+<% if current_user.is_teacher %>
+  <div id="placeholder" class="col-xs-9" style="height: 150px; width: 60%"></div>
 <% end %>
-<div id="player_wrapper">
-  <%= raw(youtube_embed(@classroom.video_url)) %>
+<div id="external_controllers" class="row-fluid btn-group external_controllers <%= "teacher" if current_user.is_teacher %>">
+  <h5>control playing:</h5>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="play" >play</button>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="pause" >pause</button>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="rewindToStart" >rewind (to 0:00)</button>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="seekTo" >align (to <span data-update="classroom_video_time"></span>)</button>
+</div>
+<div id="player" data-video_id="<%= @classroom.video_id %>">
+  <%# raw(youtube_embed(@classroom.video_url)) %>
 </div>
 
 <%= render :partial => 'questions', :locals => {:classroom => @classroom} %>
