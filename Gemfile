@@ -12,7 +12,6 @@ gem 'thin'
 gem 'devise'
 gem 'faye'
 
-gem 'forem', :github => "radar/forem"
 gem 'kaminari'
 
 gem "therubyracer"
