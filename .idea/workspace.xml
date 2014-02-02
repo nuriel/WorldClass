@@ -7,7 +7,7 @@
     <file path="/Gemfile" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391247583615" ignored="false" />
     <file path="/database.yml" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1384471139150" ignored="false" />
     <file path="$PROJECT_DIR$/../veedme/config/database.yml" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1384467817829" ignored="false" />
-    <file path="/*.regexp" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1384476088007" ignored="false" />
+    <file path="/*.regexp" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391371008776" ignored="false" />
     <file path="/development.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1384484814416" ignored="false" />
     <file path="/application.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391246714537" ignored="false" />
     <file path="/20140104194437_add_fields_to_users.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388864781151" ignored="false" />
@@ -34,7 +34,7 @@
     <file path="/answer.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391250344634" ignored="false" />
     <file path="/question.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391019282102" ignored="false" />
     <file path="/20140109005544_fix_class_id_column_name.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1389228996028" ignored="false" />
-    <file path="/application_helper.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391322058563" ignored="false" />
+    <file path="/application_helper.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391370962315" ignored="false" />
     <file path="/create.js.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391249605019" ignored="false" />
     <file path="/questions_controller.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391075491282" ignored="false" />
     <file path="/static_controller.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1390870498271" ignored="false" />
@@ -85,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.js.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="96" selection-start="944" selection-end="944" vertical-scroll-proportion="0.0">
+            <state line="25" column="97" selection-start="945" selection-end="945" vertical-scroll-proportion="0.33200794">
               <folding />
             </state>
           </provider>
@@ -97,7 +97,7 @@
       <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="115" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
+            <state line="8" column="84" selection-start="271" selection-end="309" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,7 +106,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="91" selection-start="3980" selection-end="3985" vertical-scroll-proportion="0.0">
+            <state line="99" column="91" selection-start="3985" selection-end="3985" vertical-scroll-proportion="-22.916666">
               <folding />
             </state>
           </provider>
@@ -130,10 +130,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.yml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="config.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="38" selection-start="58" selection-end="58" vertical-scroll-proportion="0.019556714">
+            <state line="1" column="38" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -179,10 +179,10 @@
         <option value="$PROJECT_DIR$/config/initializers/initialize.rb" />
         <option value="$PROJECT_DIR$/app/views/questions/_question.html.erb" />
         <option value="$PROJECT_DIR$/app/views/answers/_answer.html.erb" />
+        <option value="$PROJECT_DIR$/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js.erb" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/config/config.yml" />
       </list>
     </option>
   </component>
@@ -752,6 +752,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2775061" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1356383" sideWeight="0.7224939" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29521278" sideWeight="0.7224939" order="0" side_tool="false" content_ui="combo" />
@@ -763,7 +764,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2775061" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -914,30 +914,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="91" selection-start="3980" selection-end="3985" vertical-scroll-proportion="0.0">
+        <state line="1" column="38" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="96" selection-start="944" selection-end="944" vertical-scroll-proportion="0.0">
+        <state line="99" column="91" selection-start="3985" selection-end="3985" vertical-scroll-proportion="-22.916666">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="115" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
+        <state line="8" column="84" selection-start="271" selection-end="309" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.yml">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="38" selection-start="58" selection-end="58" vertical-scroll-proportion="0.019556714">
+        <state line="25" column="97" selection-start="945" selection-end="945" vertical-scroll-proportion="0.33200794">
           <folding />
         </state>
       </provider>

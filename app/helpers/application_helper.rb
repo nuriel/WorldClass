@@ -6,7 +6,7 @@ module ApplicationHelper
   # broadcast a message
   def broadcast(channel, &block)
     message = {:channel => channel, :data => capture(&block)}
-    uri = URI.parse( Rails.env.production? ? 'http://world-class.herokuapp.com/faye' : 'http://localhost:9292/faye')
+    uri = URI.parse( Rails.env.production? ? 'http://worldclasssocket.herokuapp.com/faye' : 'http://localhost:9292/faye')
     Net::HTTP.post_form(uri, :message => message.to_json)
   end
 
