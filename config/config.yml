@@ -1,0 +1,12 @@
+defaults: &defaults
+  socket_host: http://world-class.herokuapp.com/faye
+
+development:
+  <<: *defaults
+  socket_host: http://localhost:9292/faye
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
