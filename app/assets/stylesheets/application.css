@@ -12,3 +12,11 @@
  *= require_self
  *= require_tree .
  */
+
+.new_answer_form {
+    display: none;
+}
+
+#ask_a_question.teacher {
+    display: none;
+}

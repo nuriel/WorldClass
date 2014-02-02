@@ -1,0 +1,13 @@
+<% if @answer.errors.any? %>
+alert('<%= @answer.errors.full_messages.to_sentence %>')
+<% else %>
+<% broadcast "/answers/new" do %>
+  $("#question_<%= @answer.question.id %>_answers").append("<%= escape_javascript render(@answer) %>");
+  $("[data-update='classroom_questions_count']").each(function() {
+  //      console.log($(this).text())
+    $(this).text(incrementString($(this).text()))
+  })
+<% end %>
+$("#question_title").val('');
+$("#question__<%= @answer.question.id %>_answer_content").val('');
+<% end %>

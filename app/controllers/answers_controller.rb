@@ -46,9 +46,11 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         format.html { redirect_to @classroom, notice: 'Answer was successfully created.', anchor: "question_#{@answer.question.id}" }
+        format.js { render 'create' }
         format.json { render json: @answer, status: :created, location: @answer }
       else
         format.html { render action: "new" }
+        format.js { render 'create' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end

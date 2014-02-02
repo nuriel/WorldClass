@@ -1,0 +1,11 @@
+<% if answer.persisted? %>
+  <div id="<%= "answer_#{answer.id}" %>" class="media">
+    <a class="pull-left" href="#">
+      <%= gravatar_image_tag(answer.user.email, :alt => answer.user.name.humanize, size: "40x40") %>
+    </a>
+    <div id="answer_<%= answer.id %>" class="media-body">
+      <h4 class="media-heading"><%= answer.user.name %></h4>
+      <%= simple_format answer.content %>
+    </div>
+  </div>
+<% end %>

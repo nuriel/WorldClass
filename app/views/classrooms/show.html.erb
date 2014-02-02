@@ -11,7 +11,7 @@
   </div>
   </p>
 </div>
-<div id="ask_a_question" class="row-fluid">
+<div id="ask_a_question" class="row-fluid <%= 'teacher' if current_user.is_teacher %>">
   <%= form_for [@classroom, Question.new], :html => { :id => 'new_question_form', :class => 'form-horizontal col-xs-7' }, :remote => true do |f| %>
     <%= f.hidden_field :classroom_id, value: @classroom.id %>
     <div class="control-group">

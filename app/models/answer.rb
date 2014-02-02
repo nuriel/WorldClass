@@ -20,6 +20,7 @@ class Answer < ActiveRecord::Base
   validates :question, presence: true
   belongs_to :user
   validates :user, presence: true
+  validates :content, presence: true
 
   has_reputation :avg_rating,
                  :source => :user,

@@ -23,13 +23,16 @@
 
 // main function to initiate all
 $(function() {
-  var faye = new Faye.Client('http://localhost:9292/faye');
+  var faye = new Faye.Client('<%= Rails.env.production? ? 'http://world-class.herokuapp.com/faye' : 'http://localhost:9292/faye' %>');
 
     // Faye channels configuration
   faye.subscribe('/users/update', function (data) {
     eval(data);
   });
   faye.subscribe('/questions/new', function (data) {
+    eval(data);
+  });
+  faye.subscribe('/answers/new', function (data) {
     eval(data);
   });
   faye.subscribe('/question/answer', function (data) {
