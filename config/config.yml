@@ -1,5 +1,5 @@
 defaults: &defaults
-  socket_host: http://world-class.herokuapp.com/faye
+  socket_host: http://worldclasssocket.herokuapp.com/faye
 
 development:
   <<: *defaults
