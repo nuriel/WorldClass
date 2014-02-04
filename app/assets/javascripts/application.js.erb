@@ -23,24 +23,40 @@
 
 // main function to initiate all
 $(function() {
-  var faye = new Faye.Client('<%= Rails.env.production? ? 'http://worldclasssocket.herokuapp.com/faye' : 'http://localhost:9292/faye' %>');
+  // Enable pusher logging - don't include this in production
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
 
-    // Faye channels configuration
-  faye.subscribe('/users/update', function (data) {
-    eval(data);
+  var pusher = new Pusher('82ada99b1969a7028e3a');
+  var channel = pusher.subscribe('classroom');
+  var control_channel = pusher.subscribe('control_player');
+  control_channel.bind('play', function(data) {
+    control_playback(data.type, data.seconds)
+
+    alert(data.type);
   });
-  faye.subscribe('/questions/new', function (data) {
-    eval(data);
-  });
-  faye.subscribe('/answers/new', function (data) {
-    eval(data);
-  });
-  faye.subscribe('/question/answer', function (data) {
-    eval(data);
-  });
-  faye.subscribe('/control', function (data) {
-    control_playback(data.type, data.seconds);
-  });
+
+//  var faye = new Faye.Client('<%= Rails.env.production? ? 'http://worldclasssocket.herokuapp.com/faye' : 'http://localhost:9292/faye' %>');
+//
+//    // Faye channels configuration
+//  faye.subscribe('/users/update', function (data) {
+//    eval(data);
+//  });
+//  faye.subscribe('/questions/new', function (data) {
+//    eval(data);
+//  });
+//  faye.subscribe('/answers/new', function (data) {
+//    eval(data);
+//  });
+//  faye.subscribe('/question/answer', function (data) {
+//    eval(data);
+//  });
+//  faye.subscribe('/control', function (data) {
+//    control_playback(data.type, data.seconds);
+//  });
 
   $('body').on('click', ".player_external_controller", function(){
     var type = $(this).data('control-type')

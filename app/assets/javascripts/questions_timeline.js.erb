@@ -3,48 +3,46 @@
 
 $(function() {
   if ($("#placeholder").length) {
+    var questions = gon.questions,
+            cos = [];
 
-  }
-  var questions = gon.questions,
-          cos = [];
-
-  for (var i = 0; i < 14; i += 0.5) {
-    cos.push([i, Math.sin(i)]);
-    cos.push([i, Math.cos(i)]);
-  }
-
-  var plot = $.plot("#placeholder", [
-    { data: gon.questions, label: "question"},
-    { data: gon.qpm, label: "qpm"}
-  ], {
-    series: {
-      lines: {
-        show: true
-      },
-      points: {
-        show: true
-      }
-    },
-    grid: {
-      hoverable: true,
-      clickable: true
-    },
-    yaxis: {
-      min: 0
-//      max: 20
+    for (var i = 0; i < 14; i += 0.5) {
+      cos.push([i, Math.sin(i)]);
+      cos.push([i, Math.cos(i)]);
     }
-  });
 
-  $("<div id='tooltip'></div>").css({
-    position: "absolute",
-    display: "none",
-    border: "1px solid #fdd",
-    padding: "2px",
-    "background-color": "#fee",
-    opacity: 0.80
-  }).appendTo("body");
+    var plot = $.plot("#placeholder", [
+      { data: gon.questions, label: "question"},
+      { data: gon.qpm, label: "qpm"}
+    ], {
+      series: {
+        lines: {
+          show: true
+        },
+        points: {
+          show: true
+        }
+      },
+      grid: {
+        hoverable: true,
+        clickable: true
+      },
+      yaxis: {
+        min: 0
+//      max: 20
+      }
+    });
 
-  $("#placeholder").bind("plothover", function (event, pos, item) {
+    $("<div id='tooltip'></div>").css({
+      position: "absolute",
+      display: "none",
+      border: "1px solid #fdd",
+      padding: "2px",
+      "background-color": "#fee",
+      opacity: 0.80
+    }).appendTo("body");
+
+    $("#placeholder").bind("plothover", function (event, pos, item) {
 
       if (item) {
         var x = item.datapoint[0].toFixed(2),
@@ -56,14 +54,16 @@ $(function() {
       } else {
         $("#tooltip").hide();
       }
-  });
+    });
 
-  $("#placeholder").bind("plotclick", function (event, pos, item) {
-    if (item) {
-      console.log(" - click point " + item.dataIndex + " in " + item.series.label);
-      plot.highlight(item.series, item.datapoint);
-      ytplayer.seekTo(item.datapoint[0])
-    }
-  });
+    $("#placeholder").bind("plotclick", function (event, pos, item) {
+      if (item) {
+        console.log(" - click point " + item.dataIndex + " in " + item.series.label);
+        plot.highlight(item.series, item.datapoint);
+        ytplayer.seekTo(item.datapoint[0])
+      }
+    });
+
+  }
 
 });

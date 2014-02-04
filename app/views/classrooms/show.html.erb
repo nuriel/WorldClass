@@ -4,10 +4,23 @@
   <h5><%= "Teacher: #{@classroom.teacher.name}" %></h5>
   <p>control what you see:
   <div class="btn-group">
-    <button type="button" class="btn btn-default" onclick="$('#ask_a_question').slideToggle()" >ask a question (<span data-update="classroom_question_time">0:00</span>)</button>
-    <button type="button" class="btn btn-default" onclick="$('#external_controllers').slideToggle()" >player controllers</button>
-    <button type="button" class="btn btn-default" onclick="$('#player').slideToggle()" >video <span data-update="classroom_video_time">0:00</span></button>
-    <button type="button" class="btn btn-default" onclick="$('#questions').slideToggle()" >discussion (<span data-update="classroom_questions_count"><%= @classroom.questions.count %></span>)</button>
+    <% if current_user.is_teacher %>
+      <button type="button" class="btn btn-default" onclick="$('#placeholder').slideToggle()" >
+        <%= image_tag "graphs.png" %>stats
+      </button>
+    <% end %>
+    <button type="button" class="btn btn-default" onclick="$('#ask_a_question').slideToggle()" >
+      <%= image_tag "question_mark.png" %>ask a question (<span data-update="classroom_question_time">0:00</span>)
+    </button>
+    <button type="button" class="btn btn-default" onclick="$('#external_controllers').slideToggle()" >
+      <%= image_tag "control_class.png" %>player controllers
+    </button>
+    <button type="button" class="btn btn-default" onclick="$('#player').slideToggle()" >
+      <%= image_tag "video_class.png" %>video <span data-update="classroom_video_time">0:00</span>
+    </button>
+    <button type="button" class="btn btn-default" onclick="$('#questions').slideToggle()" >
+      <%= image_tag 'discussion.png' %>discussion (<span data-update="classroom_questions_count"><%= @classroom.questions.count %></span>)
+    </button>
   </div>
   </p>
 </div>
@@ -29,14 +42,26 @@
   <% end %>
 </div>
 <% if current_user.is_teacher %>
+  <%= link_to "play" ,notify_classroom_path(@classroom), type: 'play', remote: true %>
   <div id="placeholder" class="col-xs-9" style="height: 150px; width: 60%"></div>
 <% end %>
 <div id="external_controllers" class="row-fluid btn-group external_controllers <%= "teacher" if current_user.is_teacher %>">
   <h5>control playing:</h5>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="play" >play</button>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="pause" >pause</button>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="rewindToStart" >rewind (to 0:00)</button>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="seekTo" >align (to <span data-update="classroom_video_time"></span>)</button>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="play" >
+    <span class="icon-play"></span>play
+  </button>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="pause" >
+    <span class="icon-pause"></span>
+    pause
+  </button>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="rewindToStart" >
+    <span class="icon-fast-backward"></span>
+    restart
+  </button>
+  <button type="button" class="btn btn-default player_external_controller" data-control-type="seekTo" >
+    <span class="icon-search"></span>
+    align (to <span data-update="classroom_video_time"></span>)
+  </button>
 </div>
 <div id="player" data-video_id="<%= @classroom.video_id %>">
   <%# raw(youtube_embed(@classroom.video_url)) %>

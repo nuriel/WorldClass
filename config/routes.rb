@@ -1,6 +1,7 @@
 WorldClass::Application.routes.draw do
 
   resources :classrooms do
+    member { get :notify}
     resources :questions do
       member { post :vote }
       resources :answers do

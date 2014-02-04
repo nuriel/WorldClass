@@ -4,11 +4,11 @@ module ApplicationHelper
   end
 
   # broadcast a message
-  def broadcast(channel, &block)
-    message = {:channel => channel, :data => capture(&block)}
-    uri = URI.parse( Rails.env.production? ? 'http://worldclasssocket.herokuapp.com/faye' : 'http://localhost:9292/faye')
-    Net::HTTP.post_form(uri, :message => message.to_json)
-  end
+  #def broadcast(channel, &block)
+  #  message = {:channel => channel, :data => capture(&block)}
+  #  uri = URI.parse( Rails.env.production? ? 'http://worldclasssocket.herokuapp.com/faye' : 'http://localhost:9292/faye')
+  #  Net::HTTP.post_form(uri, :message => message.to_json)
+  #end
 
   def youtube_embed(youtube_url)
     if youtube_url[/youtu\.be\/([^\?]*)/]
