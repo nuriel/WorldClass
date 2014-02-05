@@ -12,8 +12,8 @@ teachers = User.create!([
             { email: 'teacher@openu.ac.il', name: 'Teacher', password: '123456', password_confirmation: '123456', }])
 teachers.each { |t| t.is_teacher = true; t.save! }
 
-teachers[0].teaching_classrooms.create(name: 'Ruby Beginners classroom', video_url: 'https://www.youtube.com/watch?v=sCgwFg6ti0c')
-teachers[1].teaching_classrooms.create(name: 'Computer Networks workshop', video_url: 'https://www.youtube.com/watch?v=sCgwFg6ti0c')
+teachers[0].teaching_classrooms.create(name: 'Ruby Beginners classroom', video_url: 'http://www.youtube.com/watch?v=UQ8_VOGj5H8')
+teachers[1].teaching_classrooms.create(name: 'Computer Networks workshop', video_url: 'http://www.youtube.com/watch?v=y-4UQSXkqig')
 
 
 
