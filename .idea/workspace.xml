@@ -26,7 +26,7 @@
     <file path="/20140106004106_create_classroom_user_tables.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1388968996470" ignored="false" />
     <file path="/a.dummy" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391311744636" ignored="false" />
     <file path="/_form.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391120112487" ignored="false" />
-    <file path="/show.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391529029053" ignored="false" />
+    <file path="/show.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391610944330" ignored="false" />
     <file path="/forum_backend.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1389210942060" ignored="false" />
     <file path="/application.js" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1390672813634" ignored="false" />
     <file path="/config.ru" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1389220525094" ignored="false" />
@@ -38,7 +38,7 @@
     <file path="/create.js.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391249605019" ignored="false" />
     <file path="/questions_controller.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391608936289" ignored="false" />
     <file path="/static_controller.rb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1390870498271" ignored="false" />
-    <file path="/application.js.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391610387796" ignored="false" />
+    <file path="/application.js.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1391611285735" ignored="false" />
     <file path="/bootstrap_and_overrides.css.less" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1390674575134" ignored="false" />
     <file path="/_info_window.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1390773773965" ignored="false" />
     <file path="/new.html.erb" changelist="40013651-757b-414d-a39b-3ea5e2a4c4cf" time="1390872972415" ignored="false" />
@@ -80,9 +80,9 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/classrooms/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="80" selection-start="2541" selection-end="2541" vertical-scroll-proportion="-6.25">
+            <state line="59" column="42" selection-start="3040" selection-end="3056" vertical-scroll-proportion="-8.125">
               <folding>
-                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,7 +91,7 @@
       <file leaf-file-name="application.js.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="211" column="0" selection-start="5950" selection-end="5950" vertical-scroll-proportion="0.41369864">
+            <state line="92" column="21" selection-start="2980" selection-end="2980" vertical-scroll-proportion="0.75342464">
               <folding />
             </state>
           </provider>
@@ -185,7 +185,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/classrooms/notify.js.erb" />
-        <option value="$PROJECT_DIR$/app/views/classrooms/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/classrooms_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/classrooms/control_player.js.erb" />
@@ -194,6 +193,7 @@
         <option value="$PROJECT_DIR$/app/controllers/questions_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/questions_timeline.js.erb" />
         <option value="$PROJECT_DIR$/app/views/questions/_question.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/classrooms/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js.erb" />
       </list>
     </option>
@@ -862,15 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/classrooms/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="80" selection-start="2541" selection-end="2541" vertical-scroll-proportion="-6.25">
-          <folding>
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="23" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
@@ -899,13 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/classrooms_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="4" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/questions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="35" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.0">
@@ -927,9 +911,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/classrooms_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="4" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/classrooms/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="42" selection-start="3040" selection-end="3056" vertical-scroll-proportion="-8.125">
+          <folding>
+            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="211" column="0" selection-start="5950" selection-end="5950" vertical-scroll-proportion="0.41369864">
+        <state line="92" column="21" selection-start="2980" selection-end="2980" vertical-scroll-proportion="0.75342464">
           <folding />
         </state>
       </provider>

@@ -42,30 +42,31 @@
   <% end %>
 </div>
 <% if current_user.is_teacher %>
-  <%= link_to "play" ,notify_classroom_path(@classroom, type: 'play'), remote: true %>
-  <%= link_to "pause" ,notify_classroom_path(@classroom, type: 'pause'), remote: true %>
-  <%= link_to "restart" ,notify_classroom_path(@classroom, type: 'rewindToStart'), remote: true %>
-  <%= link_to "seekTo" ,notify_classroom_path(@classroom, type: 'seekTo', seconds: 20), remote: true %>
+  <div id="external_controllers" class="row-fluid btn-group external_controllers <%= "teacher" if current_user.is_teacher %>">
+    <h5>control class playback:</h5>
+    <button type="button" class="btn btn-default player_external_controller" data-control-type="play" >
+      <span class="icon-play"></span>play
+    </button>
+    <button type="button" class="btn btn-default player_external_controller" data-control-type="pause" >
+      <span class="icon-pause"></span>
+      pause
+    </button>
+    <button type="button" class="btn btn-default player_external_controller" data-control-type="rewindToStart" >
+      <span class="icon-fast-backward"></span>
+      restart
+    </button>
+    <button type="button" class="btn btn-default player_external_controller" data-control-type="seekTo" >
+      <span class="icon-search"></span>
+      align (to <span id="realtime_seconds" data-update="classroom_video_time"></span>)
+    </button>
+  </div>
+
+  <%# link_to "play" ,notify_classroom_path(@classroom, type: 'play'), remote: true %>
+  <%# link_to "pause" ,notify_classroom_path(@classroom, type: 'pause'), remote: true %>
+  <%# link_to "restart" ,notify_classroom_path(@classroom, type: 'rewindToStart'), remote: true %>
+  <%# link_to "seekTo" ,notify_classroom_path(@classroom, type: 'seekTo', seconds: 20), remote: true %>
   <div id="placeholder" class="col-xs-9" style="height: 150px; width: 60%"></div>
 <% end %>
-<div id="external_controllers" class="row-fluid btn-group external_controllers <%= "teacher" if current_user.is_teacher %>">
-  <h5>control playing:</h5>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="play" >
-    <span class="icon-play"></span>play
-  </button>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="pause" >
-    <span class="icon-pause"></span>
-    pause
-  </button>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="rewindToStart" >
-    <span class="icon-fast-backward"></span>
-    restart
-  </button>
-  <button type="button" class="btn btn-default player_external_controller" data-control-type="seekTo" >
-    <span class="icon-search"></span>
-    align (to <span data-update="classroom_video_time"></span>)
-  </button>
-</div>
 <div id="player" data-video_id="<%= @classroom.video_id %>">
   <%# raw(youtube_embed(@classroom.video_url)) %>
 </div>

@@ -35,7 +35,7 @@ $(function() {
   var channel = pusher.subscribe('classroom');
   channel.bind('control_player', function(data) {
     control_playback(data.type, data.seconds)
-    alert(data.type + " by the teacher");
+    alert(data.type + " by the teacher on his time: " + data.seconds);
   });
 
   // upon question creation, update or answer
@@ -76,16 +76,14 @@ $(function() {
 //  faye.subscribe('/answers/new', function (data) {
 //    eval(data);
 //  });
-//  faye.subscribe('/question/answer', function (data) {
-//    eval(data);
-//  });
 //  faye.subscribe('/control', function (data) {
 //    control_playback(data.type, data.seconds);
 //  });
 
   $('body').on('click', ".player_external_controller", function(){
     var type = $(this).data('control-type')
-    var seconds = $(this).data('seconds') || 0
+    alert($('#realtime_seconds').text())
+    var seconds = $('#realtime_seconds').text() || 0
     if ($(".external_controllers").hasClass('teacher')){
       $.ajax({
         type: "POST",
@@ -162,6 +160,7 @@ function stopVideo() {
   player.stopVideo();
 }
 
+// show the current position
 function showPosition(p)
 {
   var lat = parseFloat( p.coords.latitude );
