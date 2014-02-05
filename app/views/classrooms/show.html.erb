@@ -8,12 +8,12 @@
       <button type="button" class="btn btn-default" onclick="$('#placeholder').slideToggle()" >
         <%= image_tag "graphs.png" %>stats
       </button>
+      <button type="button" class="btn btn-default" onclick="$('#external_controllers').slideToggle()" >
+        <%= image_tag "control_class.png" %>player controllers
+      </button>
     <% end %>
     <button type="button" class="btn btn-default" onclick="$('#ask_a_question').slideToggle()" >
       <%= image_tag "question_mark.png" %>ask a question (<span data-update="classroom_question_time">0:00</span>)
-    </button>
-    <button type="button" class="btn btn-default" onclick="$('#external_controllers').slideToggle()" >
-      <%= image_tag "control_class.png" %>player controllers
     </button>
     <button type="button" class="btn btn-default" onclick="$('#player').slideToggle()" >
       <%= image_tag "video_class.png" %>video <span data-update="classroom_video_time">0:00</span>
@@ -37,7 +37,7 @@
       <div class="controls">
         <%= f.text_area :content, rows: 2, :class => 'text_area new_question_field' %>
       </div>
-      <%= f.submit "Ask the question", class: 'pull-right' %>
+      <%= f.submit "Ask the question", class: 'pull-left' %>
     </div>
   <% end %>
 </div>

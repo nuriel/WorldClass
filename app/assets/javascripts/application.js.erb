@@ -82,7 +82,6 @@ $(function() {
 
   $('body').on('click', ".player_external_controller", function(){
     var type = $(this).data('control-type')
-    alert($('#realtime_seconds').text())
     var seconds = $('#realtime_seconds').text() || 0
     if ($(".external_controllers").hasClass('teacher')){
       $.ajax({
