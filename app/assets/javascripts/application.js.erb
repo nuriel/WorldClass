@@ -30,16 +30,41 @@ $(function() {
     }
   };
 
+  // set the pusher params
   var pusher = new Pusher('82ada99b1969a7028e3a');
   var channel = pusher.subscribe('classroom');
-  var control_channel = pusher.subscribe('control_player');
-  control_channel.bind('play', function(data) {
+  channel.bind('control_player', function(data) {
     control_playback(data.type, data.seconds)
-
-    alert(data.type);
+    alert(data.type + " by the teacher");
   });
 
-//  var faye = new Faye.Client('<%= Rails.env.production? ? 'http://worldclasssocket.herokuapp.com/faye' : 'http://localhost:9292/faye' %>');
+  // upon question creation, update or answer
+  channel.bind('question', function(data){
+    if ($("#question_"+data.qid).length) {
+      $("#question_"+data.qid).replaceWith(data.partial)
+      console.log('existing partial generation')
+    } else {
+      $('#questions').append(data.partial)
+      console.log('new partial generation')
+    }
+
+    $("[data-update='classroom_questions_count']").each(function() {
+//      console.log($(this).text())
+      $(this).text(incrementString($(this).text()))
+    })
+
+    if ($('#placeholder').length) {
+      var series = $('#placeholder').getData();
+      series[0].push([data.time,1])
+      $('#placeholder').setData(series);
+      $('#placeholder').draw();
+
+
+    }
+
+  })
+
+//  var faye = new Faye.Client('<%# Rails.env.production? ? 'http://worldclasssocket.herokuapp.com/faye' : 'http://localhost:9292/faye' %>');
 //
 //    // Faye channels configuration
 //  faye.subscribe('/users/update', function (data) {
@@ -62,14 +87,21 @@ $(function() {
     var type = $(this).data('control-type')
     var seconds = $(this).data('seconds') || 0
     if ($(".external_controllers").hasClass('teacher')){
-      control_playback('type')
-      faye.publish('/control', {
-        type: type,
-        seconds: parseInt(seconds)
+      $.ajax({
+        type: "POST",
+        url: "/control_player",
+        dataType: "json",
+        data: {
+          'type': type,
+          'seconds': seconds
+        },
+        success: function(data){
+          console.log('control success')
+
+        }
       });
     }
   })
-
 
   google.maps.event.addDomListener(window, "load", initialize);
 
@@ -175,6 +207,11 @@ function extendYoutubePlayer(ytplayer) {
     }
 
 }
+
+$('body').on('click', '.seek_to', function(event){
+  control_playback('seekTo',$(this).data('time'))
+  event.preventDefault(); // Prevent link from following its href
+});
 
 function control_playback(type, seconds) {
   seconds = seconds || 0;

@@ -41,10 +41,13 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = current_user.answers.new(params[:answer])
-    @classroom = @answer.question.classroom
+    @question = @answer.question
+    @classroom = @question.classroom
 
     respond_to do |format|
       if @answer.save
+        Pusher.trigger('classroom', 'question' , { :qid => @question.id, :partial => render_to_string(@question) })
+
         format.html { redirect_to @classroom, notice: 'Answer was successfully created.', anchor: "question_#{@answer.question.id}" }
         format.js { render 'create' }
         format.json { render json: @answer, status: :created, location: @answer }

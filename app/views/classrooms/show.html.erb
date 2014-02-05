@@ -42,7 +42,10 @@
   <% end %>
 </div>
 <% if current_user.is_teacher %>
-  <%= link_to "play" ,notify_classroom_path(@classroom), type: 'play', remote: true %>
+  <%= link_to "play" ,notify_classroom_path(@classroom, type: 'play'), remote: true %>
+  <%= link_to "pause" ,notify_classroom_path(@classroom, type: 'pause'), remote: true %>
+  <%= link_to "restart" ,notify_classroom_path(@classroom, type: 'rewindToStart'), remote: true %>
+  <%= link_to "seekTo" ,notify_classroom_path(@classroom, type: 'seekTo', seconds: 20), remote: true %>
   <div id="placeholder" class="col-xs-9" style="height: 150px; width: 60%"></div>
 <% end %>
 <div id="external_controllers" class="row-fluid btn-group external_controllers <%= "teacher" if current_user.is_teacher %>">

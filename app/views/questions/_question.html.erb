@@ -3,7 +3,7 @@
       <%= gravatar_image_tag(question.user.email, :alt => question.user.name.humanize, size: "64x64") %>
     </a>
     <div class="media-body">
-      <h4 class="media-heading"><%= "(#{question.time}) #{question.title}" %></h4>
+      <h4 class="media-heading"><%= "#{question.title}"  %> <%= link_to question.time, "#", class: "seek_to", data: {time: question.time} %></h4>
       <p><%= simple_format question.content %></p>
       <!-- Nested media object -->
       <em>

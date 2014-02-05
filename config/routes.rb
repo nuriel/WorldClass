@@ -1,7 +1,7 @@
 WorldClass::Application.routes.draw do
 
   resources :classrooms do
-    member { get :notify}
+    member { get :notify }
     resources :questions do
       member { post :vote }
       resources :answers do
@@ -9,6 +9,9 @@ WorldClass::Application.routes.draw do
       end
     end
   end
+
+  post "/control_player", to: "classrooms#control_player"
+  post "/push", to: "classrooms#notify"
 
   devise_for :users
 

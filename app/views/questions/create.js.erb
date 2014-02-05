@@ -1,13 +1,6 @@
 <% if @question.errors.any? %>
   alert('<%= @question.errors.full_messages.to_sentence %>')
 <% else %>
-  <% broadcast "/questions/new" do %>
-    $("#questions").append("<%= escape_javascript render(@question) %>");
-    $("[data-update='classroom_questions_count']").each(function() {
-//      console.log($(this).text())
-      $(this).text(incrementString($(this).text()))
-    })
-  <% end %>
   $("#question_title").val('');
   $("#question_content").val('');
 <% end %>

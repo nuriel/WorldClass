@@ -46,6 +46,12 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
+        Pusher.trigger('classroom', 'question' , {
+            :qid => @question.id,
+            :partial => render_to_string(@question),
+            :time => @question.time
+        })
+
         format.html { redirect_to @classroom, notice: 'Question was successfully created.' }
         format.js { render 'create'}
         format.json { render json: @question, status: :created, location: @question }

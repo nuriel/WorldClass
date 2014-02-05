@@ -98,7 +98,7 @@ class ClassroomsController < ApplicationController
     end
   end
 
-  def notify
-    Pusher.trigger('control_player', params[:type] || 'play', { :type => params[:type] || 'play', :seconds => params[:seconds].to_i})
+  def control_player
+    Pusher.trigger('classroom', 'control_player' , { :type => params[:type] || 'play', :seconds => params[:seconds].to_i})
   end
 end
